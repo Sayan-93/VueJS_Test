@@ -1,6 +1,25 @@
 <template>
   <h1>{{ title }}</h1>
-  <Modal :header="header" :text="text" theme="sale"/>
+  <p>Welcome...</p>
+  <div v-if="showModal">
+    <Modal theme="sale" @close="toggleModal">
+      <template v-slot:links>
+        <a href="#">sign here</a>
+      </template>
+      <h1>Sign up</h1>
+    </Modal>
+  </div>
+
+  <div v-if="showModalTwo">
+    <Modal theme="sale" @close="toggleModalTwo">
+      <h1>Sign up for the newsletter</h1>
+    </Modal>
+  </div>
+
+  <button @click="toggleModal">open modal</button>
+  <button @click="toggleModalTwo">open modal</button>
+  
+  
 </template>
 
 <script>
@@ -13,7 +32,17 @@ export default {
     return{
       title: 'New Vue project',
       header: 'Sign up!',
-      text: 'Good luck'
+      text: 'Good luck',
+      showModal: false,
+      showModalTwo: false
+    }
+  },
+  methods: {
+    toggleModal() {
+      this.showModal = !this.showModal
+    },
+    toggleModalTwo() {
+      this.showModalTwo = !this.showModalTwo
     }
   }
 }
