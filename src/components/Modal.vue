@@ -4,7 +4,7 @@
         <div class="modal" :class="{ sale: theme === 'sale' }">
             <slot></slot>
             
-                <slot name="links"></slot>
+            <slot name="links"></slot>
             
         </div>
     </div>

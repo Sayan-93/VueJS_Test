@@ -7,10 +7,17 @@
         <a href="#">sign here</a>
       </template>
       <h1>Sign up</h1>
-      
     </Modal>
   </div>
+
+  <div v-if="showModalTwo">
+    <Modal theme="sale" @close="toggleModalTwo">
+      <h1>Sign up for the newsletter</h1>
+    </Modal>
+  </div>
+
   <button @click="toggleModal">open modal</button>
+  <button @click="toggleModalTwo">open modal</button>
   
   
 </template>
@@ -27,11 +34,15 @@ export default {
       header: 'Sign up!',
       text: 'Good luck',
       showModal: false,
+      showModalTwo: false
     }
   },
   methods: {
     toggleModal() {
       this.showModal = !this.showModal
+    },
+    toggleModalTwo() {
+      this.showModalTwo = !this.showModalTwo
     }
   }
 }
